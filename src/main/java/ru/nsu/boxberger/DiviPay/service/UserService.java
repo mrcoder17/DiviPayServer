@@ -10,8 +10,12 @@ import java.util.List;
 @Service
 public class UserService{
 
+    private final UserRepository userRepository;
+
     @Autowired
-    private UserRepository userRepository;
+    public UserService (UserRepository userRepository){
+        this.userRepository = userRepository;
+    }
 
     public boolean existUserByUsernameAndPassword(String username, String password) {
         return userRepository.findByUsernameAndPassword(username, password) != null;
@@ -25,16 +29,13 @@ public class UserService{
         return userRepository.findAll();
     }
 
-    public User getUserById(Long userID) {
-        return userRepository.findById(userID).orElse(null);
+    public User getUserById(Long id) {
+        return userRepository.findById(id).orElse(null);
     }
 
-    public User getUserByUsername (String username){
-        return userRepository.findByUsername(username);
-    }
 
-    public User updateUser(String username, User user) {
-        User existingUser = userRepository.findByUsername(username);
+    public User updateUser(Long id, User user) {
+        User existingUser = userRepository.findById(id).orElse(null);
         if (existingUser != null) {
             if (user.getUsername() != null) {
                 existingUser.setUsername(user.getUsername());
@@ -57,10 +58,11 @@ public class UserService{
         return null;
     }
 
-    public void deleteUser(String username) {
-        User user = userRepository.findByUsername(username);
-        if (user != null) {
-            userRepository.delete(user);
-        }
+    public void deleteUser(Long id) {
+        userRepository.deleteById(id);
+    }
+
+    public Long getUserIdByUsername(String username) {
+         return userRepository.getUserIDByUsername(username).getUserID();
     }
 }

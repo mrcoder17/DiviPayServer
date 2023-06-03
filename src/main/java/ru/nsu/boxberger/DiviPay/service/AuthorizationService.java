@@ -18,6 +18,9 @@ public class AuthorizationService {
         if (!userService.existUserByUsernameAndPassword(username, password)) {
             throw new NotFoundException("User not found");
         }
+
+        Long userID = userService.getUserIdByUsername(username);
+        authorizationRequest.setUserID(userID);
     }
 
     public void registration(AuthorizationRequest authorizationRequest) throws NotFoundException {
@@ -27,6 +30,9 @@ public class AuthorizationService {
         if (userService.createUser(newUser) == null) {
             throw new NotFoundException("User already created");
         }
+
+        Long userId = userService.getUserIdByUsername(newUsername);
+        authorizationRequest.setUserID(userId);
     }
 }
 

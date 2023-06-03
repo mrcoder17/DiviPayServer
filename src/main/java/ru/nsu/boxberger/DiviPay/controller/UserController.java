@@ -7,6 +7,7 @@ import ru.nsu.boxberger.DiviPay.service.UserService;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/users")
@@ -30,18 +31,12 @@ public class UserController {
                 usernames.add(user.getName());
             }
         }
-
         return usernames;
     }
 
-//    @GetMapping("/{id}")
-//    public User getUserByID(@PathVariable Long id) {
-//        return userService.getUserById(id);
-//    }
-
-    @GetMapping("/{username}")
-    public User getUserByUsername(@PathVariable String username) {
-        return userService.getUserByUsername(username);
+    @GetMapping("/{id}")
+    public User getUserByID(@PathVariable Long id) {
+        return userService.getUserById(id);
     }
 
     @PostMapping
@@ -49,14 +44,14 @@ public class UserController {
         return userService.createUser(user);
     }
 
-    @PutMapping("/{username}")
-    public User updateUser(@PathVariable String username, @RequestBody User user) {
-        return userService.updateUser(username, user);
+    @PutMapping("/{id}")
+    public User updateUser(@PathVariable Long id, @RequestBody User updateUser) {
+        return userService.updateUser(id, updateUser);
     }
 
-    @DeleteMapping("/{username}")
-    public void deleteUser(@PathVariable String username) {
-        userService.deleteUser(username);
+    @DeleteMapping("/{id}")
+    public void deleteUser(@PathVariable Long id) {
+        userService.deleteUser(id);
     }
 }
 

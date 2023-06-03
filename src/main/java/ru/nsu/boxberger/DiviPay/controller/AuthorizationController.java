@@ -16,14 +16,16 @@ public class AuthorizationController {
     private AuthorizationService authorizationService;
 
     @PostMapping("/api/login")
-    public ResponseEntity<Void> login(@RequestBody AuthorizationRequest authorizationRequest) throws NotFoundException {
+    public ResponseEntity<Long> login(@RequestBody AuthorizationRequest authorizationRequest) throws NotFoundException {
         authorizationService.login(authorizationRequest);
-        return ResponseEntity.ok().build();
+        Long userID = authorizationRequest.getUserID();
+        return ResponseEntity.ok(userID);
     }
 
     @PostMapping("/api/registration")
-    public ResponseEntity<Void> registration(@RequestBody AuthorizationRequest authorizationRequest) throws NotFoundException {
+    public ResponseEntity<Long> registration(@RequestBody AuthorizationRequest authorizationRequest) throws NotFoundException {
         authorizationService.registration(authorizationRequest);
-        return ResponseEntity.ok().build();
+        Long userID = authorizationRequest.getUserID();
+        return ResponseEntity.ok(userID);
     }
 }

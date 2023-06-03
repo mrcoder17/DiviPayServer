@@ -11,9 +11,8 @@ public class Request {
     @Column(name = "request_id")
     private Long requestID;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id", referencedColumnName = "user_id")
-    private User user;
+    @Column(name = "user_id")
+    private Long userID;
 
     @Column(name = "item_name")
     private String itemName;
@@ -37,12 +36,12 @@ public class Request {
         this.requestID = requestID;
     }
 
-    public User getUser() {
-        return user;
+    public Long getUserID() {
+        return userID;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUserID(Long userID) {
+        this.userID = userID;
     }
 
     public Integer getQuantity() {

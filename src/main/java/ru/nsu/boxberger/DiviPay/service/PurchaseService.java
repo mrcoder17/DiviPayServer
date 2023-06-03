@@ -31,6 +31,7 @@ public class PurchaseService {
     public Purchase updatePurchase(Long purchaseID, Purchase purchase) {
         Purchase existingPurchase = purchaseRepository.findById(purchaseID).orElse(null);
         if (existingPurchase != null) {
+            existingPurchase.setUserID(purchase.getUserID());
             existingPurchase.setPurchaseID(purchase.getPurchaseID());
             existingPurchase.setPrice(purchase.getPrice());
             existingPurchase.setItemName(purchase.getItemName());

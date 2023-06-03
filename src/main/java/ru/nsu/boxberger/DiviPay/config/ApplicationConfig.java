@@ -1,4 +1,4 @@
-package ru.nsu.boxberger.DiviPay;
+package ru.nsu.boxberger.DiviPay.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;

@@ -10,9 +10,8 @@ public class Purchase {
     @Column(name = "purchase_id")
     private Long purchaseID;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id", referencedColumnName = "user_id")
-    private User user;
+    @Column(name = "user_id")
+    private Long userID;
 
     @Column(name = "item_name")
     private String itemName;
@@ -31,12 +30,12 @@ public class Purchase {
         return purchaseID;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUserID(Long userID) {
+        this.userID = userID;
     }
 
-    public User getUser() {
-        return user;
+    public Long getUserID() {
+        return userID;
     }
 
     public void setItemName(String itemName) {
@@ -62,5 +61,4 @@ public class Purchase {
     public Double getPrice() {
         return price;
     }
-
 }
