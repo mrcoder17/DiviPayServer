@@ -26,6 +26,9 @@ public class User {
     @Column(name = "avatar")
     private String avatar;
 
+    @Column(name = "debt")
+    private Double debt;
+
     public User(){}
 
     public User(String username, String password) {
@@ -76,5 +79,13 @@ public class User {
 
     public void setAvatar(String avatar) {
         this.avatar = avatar;
+    }
+
+    public Double getDebt() {
+        return debt;
+    }
+
+    public void setDebt(Double debt) {
+        this.debt = debt;
     }
 }

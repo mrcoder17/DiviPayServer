@@ -52,6 +52,9 @@ public class UserService{
             if (user.getAvatar() != null) {
                 existingUser.setAvatar(user.getAvatar());
             }
+            if (user.getDebt() != null){
+                existingUser.setDebt(user.getDebt());
+            }
 
             return userRepository.save(existingUser);
         }
