@@ -31,6 +31,8 @@ public class RequestService {
     public Request updateRequest(Long requestID, Request request) {
         Request existingRequest = requestRepository.findById(requestID).orElse(null);
         if (existingRequest != null) {
+            existingRequest.setRequestID(requestID);
+            existingRequest.setUserID(request.getUserID());
             existingRequest.setItemName(request.getItemName());
             existingRequest.setQuantity(request.getQuantity());
 

@@ -5,9 +5,7 @@ import org.springframework.web.bind.annotation.*;
 import ru.nsu.boxberger.DiviPay.model.User;
 import ru.nsu.boxberger.DiviPay.service.UserService;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/users")
@@ -20,18 +18,8 @@ public class UserController {
     }
 
     @GetMapping
-    public List<String> getAllUsers() {
-        List<User> users = userService.getAllUsers();
-        List<String> usernames = new ArrayList<>();
-
-        for (User user : users){
-            if (user.getName() == null){
-                usernames.add(user.getUsername());
-            } else {
-                usernames.add(user.getName());
-            }
-        }
-        return usernames;
+    public List<User> getAllUsers() {
+        return userService.getAllUsers();
     }
 
     @GetMapping("/{id}")
