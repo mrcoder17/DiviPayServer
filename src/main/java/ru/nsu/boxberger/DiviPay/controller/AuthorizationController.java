@@ -17,13 +17,11 @@ public class AuthorizationController {
 
     @PostMapping("/api/login")
     public ResponseEntity<User> login(@RequestBody User user) throws NotFoundException {
-        authorizationService.login(user);
-        return ResponseEntity.ok(user);
+        return ResponseEntity.ok(authorizationService.login(user));
     }
 
     @PostMapping("/api/registration")
     public ResponseEntity<User> registration(@RequestBody User user) throws NotFoundException {
-        authorizationService.registration(user);
-        return ResponseEntity.ok(user);
+        return ResponseEntity.ok(authorizationService.registration(user));
     }
 }

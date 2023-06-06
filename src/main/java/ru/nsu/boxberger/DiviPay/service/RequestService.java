@@ -42,9 +42,6 @@ public class RequestService {
     }
 
     public void deleteRequest(Long id) {
-        Request request = requestRepository.findById(id).orElse(null);
-        if (request != null) {
-            requestRepository.delete(request);
-        }
+        requestRepository.findById(id).ifPresent(requestRepository::delete);
     }
 }
