@@ -61,4 +61,5 @@ public class Purchase {
     public Double getPrice() {
         return price;
     }
+
 }

@@ -28,6 +28,4 @@ public class PaymentService {
     public Payment createPayment(Payment payment) {
         return paymentRepository.save(payment);
     }
-
-    // Другие методы сервиса
 }

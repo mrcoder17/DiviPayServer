@@ -32,6 +32,4 @@ public class PaymentController {
     public Payment createPayment(@RequestBody Payment payment) {
         return paymentService.createPayment(payment);
     }
-
-    // Другие методы контроллера
 }
