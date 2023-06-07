@@ -16,7 +16,7 @@ public class Payment {
     @Column(name = "user_id")
     private Long userID;
 
-    @Column(name = "isPaid")
+    @Column(name = "is_paid")
     private Boolean isPaid;
 
     public Long getPaymentID() {
