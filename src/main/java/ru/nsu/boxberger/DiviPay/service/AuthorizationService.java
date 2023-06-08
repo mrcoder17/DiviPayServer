@@ -8,7 +8,6 @@ import ru.nsu.boxberger.DiviPay.repository.UserRepository;
 
 @Service
 public class AuthorizationService {
-    private static final String DEFAULT_IMG_URL = "https://i.postimg.cc/8P3wGrYx/avatar.jpg";
 
     @Autowired
     private UserService userService;
@@ -28,7 +27,6 @@ public class AuthorizationService {
         if (userService.createUser(newUser) == null) {
             throw new NotFoundException("User already created");
         } else {
-            newUser.setAvatar(DEFAULT_IMG_URL);
             return userRepository.findByUsernameAndPassword(newUser.getUsername(), newUser.getPassword());
         }
     }

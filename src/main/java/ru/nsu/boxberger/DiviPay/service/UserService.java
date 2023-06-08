@@ -8,12 +8,12 @@ import ru.nsu.boxberger.DiviPay.repository.UserRepository;
 import java.util.List;
 
 @Service
-public class UserService{
+public class UserService {
 
     private final UserRepository userRepository;
 
     @Autowired
-    public UserService (UserRepository userRepository){
+    public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
@@ -52,7 +52,7 @@ public class UserService{
             if (user.getAvatar() != null) {
                 existingUser.setAvatar(user.getAvatar());
             }
-            if (user.getDebt() != null){
+            if (user.getDebt() != null) {
                 existingUser.setDebt(user.getDebt());
             }
 

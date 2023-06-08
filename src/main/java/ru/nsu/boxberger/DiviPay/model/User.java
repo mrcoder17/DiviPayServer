@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 @Entity
 @Table(name = "users")
 public class User {
+    private static final String DEFAULT_IMG_URL = "https://i.postimg.cc/8P3wGrYx/avatar.jpg";
 
     @Id
     @Column(name = "user_id")
@@ -34,6 +35,7 @@ public class User {
     public User(String username, String password) {
         this.username = username;
         this.password = password;
+        this.avatar = DEFAULT_IMG_URL;
     }
 
 

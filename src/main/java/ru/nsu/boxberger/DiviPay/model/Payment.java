@@ -7,7 +7,7 @@ import jakarta.persistence.*;
 public class Payment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column (name = "payment_id")
+    @Column(name = "payment_id")
     private Long paymentID;
 
     @Column(name = "purchase_id")
@@ -15,4 +15,28 @@ public class Payment {
 
     @Column(name = "user_id")
     private Long userID;
+
+    public Long getPaymentID() {
+        return paymentID;
+    }
+
+    public void setPaymentID(Long paymentID) {
+        this.paymentID = paymentID;
+    }
+
+    public Long getPurchaseID() {
+        return purchaseID;
+    }
+
+    public void setPurchaseID(Long purchaseID) {
+        this.purchaseID = purchaseID;
+    }
+
+    public Long getUserID() {
+        return userID;
+    }
+
+    public void setUserID(Long userID) {
+        this.userID = userID;
+    }
 }
